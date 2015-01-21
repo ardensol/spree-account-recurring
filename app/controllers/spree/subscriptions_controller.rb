@@ -51,7 +51,7 @@ module Spree
     end
 
     def subscription_params
-      params.require(:subscription).permit(:email, :card_token)
+      params.require(:subscription).permit(:email, :card_token, :fullname)
     end
 
     def load_object
