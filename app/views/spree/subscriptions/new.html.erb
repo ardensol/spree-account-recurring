@@ -2,9 +2,13 @@
 
 <%= form_for @subscription, url: recurring_plan_subscriptions_url(@plan) do |f| %>
   <%= image_tag 'credit_cards/credit_card.gif', :id => 'credit-card-image' %>
-   <p class="field" %>>
+   <p class="field" %>
     <%= label_tag "full_name" %>
     <%= text_field_tag "full_name" %>
+  </p>
+  <p class="field" %>>
+    <%= label_tag "country" %>
+    <%= text_field_tag "country" %>
   </p>
   <div id="plan_<%= @plan.id %>_subscribe">
     <p class="field" data-hook="card_number">
