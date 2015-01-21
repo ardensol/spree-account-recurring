@@ -2,8 +2,8 @@
 
 <%= form_for @subscription, url: recurring_plan_subscriptions_url(@plan) do |f| %>
   <%= image_tag 'credit_cards/credit_card.gif', :id => 'credit-card-image' %>
-   <p class="field" id=<%="#{address_id}firstname" %>>
-    <%= f.label :fullname, Spree.t(:first_name) %><span class="required">*</span>
+   <p class="field" %>>
+    <%= f.label :fullname %>
     <%= f.text_field :fullname %>
   </p>
   <div id="plan_<%= @plan.id %>_subscribe">
