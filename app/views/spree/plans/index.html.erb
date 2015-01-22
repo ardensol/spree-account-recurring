@@ -1,6 +1,6 @@
 
 <div class="image-header">
-  <img alt="Dapper Products" class="img-responsive" src="images/DapperBox BG3.png"></div>
+  <img alt="Dapper Products" class="img-responsive" src="/images/DapperBox BG3.png"></div>
     <div class="w-container"> <br />
       <h3 class="w-hidden-tiny" id="page-nav-Section-1">Be The Best Dressed Man in the Room</h3>
     </div>
@@ -13,7 +13,6 @@
 	  <div style='float:left;padding:20px;border:solid'>
 	    <strong><%= plan.name %></strong><br/>
 	    <%= number_to_currency plan.amount %> every <%= plan.interval_count %> <%= plan.interval.pluralize(plan.interval_count) %><br/>
-	    <%= plan.trial_period_days %> <%= 'day'.pluralize(plan.trial_period_days) %> trial <br/>
 	    <br/>
 	    <% if spree_current_user %>
 	      <%= button_link_to 'Subscribe', new_recurring_plan_subscription_url(plan) %>
