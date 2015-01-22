@@ -48,7 +48,7 @@ module Spree
         if action == :create
           params.require(:plan).permit(:name, :trial_period_days, :interval, :currency, :amount, :active, :interval_count, :default, :img_url)
         else
-          params.require(:plan).permit(:name, :active, :default)
+          params.require(:plan).permit(:name, :active, :default, :img_url)
         end
       end
 
