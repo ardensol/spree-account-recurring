@@ -13,7 +13,7 @@ module Spree
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
       if @subscription.save_and_manage_api
-        redirect_to recurring_plan_subscription_url(@plan, @subscription), notice: "Thank you for subscribing!"
+        redirect_to root_path, notice: "Thank you for subscribing!"
       else
         render :new
       end

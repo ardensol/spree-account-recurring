@@ -14,6 +14,7 @@ gem 'spree_auth_devise', github: 'spree/spree_auth_devise', :branch => "2-2-stab
 gem 'spree_backend', '~> 2.2'
 gem 'spree_frontend', '~> 2.2'
 
+
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara', '~> 2.1'

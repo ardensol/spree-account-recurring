@@ -11,6 +11,10 @@ module Spree
     validates :amount, :interval, :interval_count, :name, :currency, :recurring_id, :api_plan_id, presence: true
     attr_readonly :amount, :interval, :currency, :id, :trial_period_days, :interval_count, :recurring_id, :api_plan_id
 
+
+    has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
     before_validation :manage_default, if: :default_changed?
 
     scope :active, -> { undeleted.where(active: true) }
