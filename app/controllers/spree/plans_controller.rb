@@ -1,5 +1,5 @@
 module Spree
-  class Spree::Recurring::PlansController < StoreController
+  class PlansController < StoreController
     def index
       @plans = Spree::Plan.visible.order('id desc')
     end
