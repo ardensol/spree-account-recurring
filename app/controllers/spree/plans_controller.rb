@@ -1,7 +1,7 @@
 module Spree
   class PlansController < StoreController
     def index
-      @plans = Spree::Plan.visible.order('id desc')
+      @plans = Spree::Plan.visible.order('id ASC')
     end
   end
-end
+endx
