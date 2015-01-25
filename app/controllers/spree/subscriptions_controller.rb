@@ -4,7 +4,7 @@ module Spree
     before_action :find_active_plan, only: [:new, :create]
     before_action :find_plan, only: [:show, :destroy]
     before_action :find_subscription, only: [:show, :destroy]
-    before_action :authenticate_subscription, only: [:new, :create, :confirmation]
+    before_action :authenticate_subscription, only: [:new, :create]
 
     def new
       @subscription = @plan.subscriptions.build
@@ -16,7 +16,7 @@ module Spree
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
       if @subscription.save_and_manage_api
-        redirect_to plan_subscription_confirmation_path(@plan, @subscription), notice: "Thank you for subscribing!"
+        redirect_to "/confirmation", notice: "Thank you for subscribing!"
       else
         render :new
       end
