@@ -15,6 +15,7 @@ Spree::Core::Engine.routes.draw do
   
   resources :plans, only: :index do
     resources :subscriptions, only: [:show, :create, :destroy, :new]
+    match 'confirmation', to 'subscriptions#confirmation', via: :get
   end
 
 end
