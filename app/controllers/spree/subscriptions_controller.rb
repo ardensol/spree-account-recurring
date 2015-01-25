@@ -15,7 +15,7 @@ module Spree
 
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
-      if @subscription.save_and_managex_api
+      if @subscription.save_and_manage_api
         redirect_to plan_subscription_confirmation_path, notice: "Thank you for subscribing!"
       else
         render :new
