@@ -1,6 +1,6 @@
 module Spree
   class SubscriptionsController < StoreController
-    prepend_before_filter :load_object
+    prepend_before_filter :load_object, except: [:confirmation]
     before_action :find_active_plan, only: [:new, :create]
     before_action :find_plan, only: [:show, :destroy]
     before_action :find_subscription, only: [:show, :destroy]
@@ -16,7 +16,7 @@ module Spree
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
       if @subscription.save_and_manage_api
-        redirect_to "/confirmation", notice: "Thank you for subscribing!"
+        redirect_to confirmation_path
       else
         render :new
       end
