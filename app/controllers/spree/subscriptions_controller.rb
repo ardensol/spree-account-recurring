@@ -3,7 +3,7 @@ module Spree
     prepend_before_filter :load_object
     before_action :find_active_plan, only: [:new, :create]
     before_action :find_plan, only: [:show, :destroy]
-    before_action :find_subscription, only: [:show, :destroy, :confirmation]
+    before_action :find_subscription, only: [:show, :destroy]
     before_action :authenticate_subscription, only: [:new, :create]
 
     def new
