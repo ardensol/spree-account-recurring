@@ -36,6 +36,11 @@
       <%= f.text_field :country %>
     </p>
 
+      <p class="field" %>>
+      <%= label_tag :coupon_code %>
+      <%= f.text_field :coupon_code %>
+    </p>
+
     <%= image_tag 'credit_cards/credit_card.gif', :id => 'credit-card-image' %> 
     <div id="plan_<%= @plan.id %>_subscribe">
       <p class="field" data-hook="card_number">

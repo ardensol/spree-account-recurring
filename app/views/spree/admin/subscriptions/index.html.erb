@@ -48,6 +48,7 @@
       <col>
       <col>
       <col>
+      <col>
     </colgroup>
     <thead>
       <tr data-hook="admin_subscriptions_index_headers">
@@ -58,7 +59,8 @@
         <th>City</th>
         <th>State</th>
         <th>Postal Code</th>
-        <th>Country</th>         
+        <th>Country</th>
+        <th>Coupon Code</th>         
         <th><%= Spree.t(:plan) %></th>
         <th><%= Spree.t(:subscribed_at) %></th>
         <th><%= Spree.t(:unsubscribed_at) %></th>
@@ -76,6 +78,7 @@
           <td class="align-center"><%= subscription.state %></td>
           <td class="align-center"><%= subscription.postal_code %></td>
           <td class="align-center"><%= subscription.country %></td>
+          <td class="align-center"><%= subscription.coupon_code %></td>
           <td class="align-center"><%= link_to subscription.plan.api_plan_id, edit_admin_recurring_plan_url(subscription.plan.recurring, subscription.plan) %></td>
           <td class="align-center"><%= subscription.subscribed_at.try(:strftime, '%d-%h-%Y') %></td>
           <td class="align-center"><%= subscription.unsubscribed_at.try(:strftime, '%d-%h-%Y') || 'N/A' %></td>
