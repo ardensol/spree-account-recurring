@@ -30,6 +30,16 @@
       </div>
 
       <div class="field">
+        <%= f.label :intl_amount, Spree.t(:amount) %>
+        <%= f.text_field :intl_amount %>
+      </div>
+
+      <div class="field">
+        <%= f.label :intl_plan_id, Spree.t(:amount) %>
+        <%= f.text_field :intl_plan_id %>
+      </div>
+
+      <div class="field">
         <%= f.label :trial_period_days, Spree.t(:trial_period_days) %>
         <%= f.text_field :trial_period_days, :disabled => @plan.persisted? %>
       </div>
