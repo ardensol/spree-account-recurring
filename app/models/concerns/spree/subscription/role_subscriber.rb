@@ -26,8 +26,6 @@ module Spree
         end
       end
 
-      private
-
       def subscriber_role
         Spree::Role.where(name: 'subscriber').first
       end
