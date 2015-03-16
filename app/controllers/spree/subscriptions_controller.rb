@@ -1,6 +1,6 @@
 module Spree
   class SubscriptionsController < StoreController
-    prepend_before_filter :load_object, except: [:confirmation]
+    prepend_before_filter :load_object, except: [:confirmation, :cancellation]
     before_action :find_active_plan, only: [:new, :create]
     before_action :find_plan, only: [:show, :destroy]
     before_action :find_subscription, only: [:show, :destroy]
