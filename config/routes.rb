@@ -19,4 +19,7 @@ Spree::Core::Engine.routes.draw do
 
   match 'confirmation', to: 'subscriptions#confirmation', via: :get
 
+
+  match 'cancellation', to: 'subscriptions#cancellation', via: :get
+
 end

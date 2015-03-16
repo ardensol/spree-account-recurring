@@ -13,6 +13,9 @@ module Spree
     def confirmation
     end
 
+    def cancellation
+    end
+
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
       if @subscription.save_and_manage_api
