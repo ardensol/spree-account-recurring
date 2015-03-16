@@ -15,6 +15,7 @@ module Spree
 
     def cancellation
       @subscription = spree_current_user.subscriptions.undeleted.first
+      @plan = @subscription.plan
     end
 
     def create
