@@ -30,12 +30,19 @@ module Spree
     def destroy
       if @subscription.save_and_manage_api(unsubscribed_at: Time.current)
         redirect_to plans_path, notice: "Subscription has been cancelled."
+        send_cancellation_email
       else
         render :show
       end
     end
 
     private
+
+    def send_cancellation_email
+      @email = spree_current_user.email
+      SubscriptionsMailer.cancel_email(@email).deliver
+    end
+
 
     def find_active_plan
       unless @plan = Spree::Plan.active.where(id: params[:plan_id]).first
