@@ -18,6 +18,14 @@ module Spree
       @plan = @subscription.plan
     end
 
+    def postponement
+      if send_postponement_email
+        redirect_to plans_path, notice "Your Subscription has been Postponed."
+      else
+        render '/account'
+      end
+    end
+
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
       if @subscription.save_and_manage_api
@@ -41,6 +49,12 @@ module Spree
     def send_cancellation_email
       email = spree_current_user.email
       SubscriptionsMailer.cancel_email(email).deliver
+    end
+
+
+    def send_postponement_email
+      user = spree_current_user
+      SubscriptionsMailer.postpone_email(user).deliver
     end
 
 
