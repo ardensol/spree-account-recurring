@@ -6,8 +6,7 @@ module Spree
     end
 
     def postpone_email(email)
-      @email = email
-      subject = "Postponed for 3 Months: #{@email}"
+      subject = "Postponed for 3 Months: #{email}"
       mail(to: "admin@mydapperbox.com", subject: subject)
     end
   end
