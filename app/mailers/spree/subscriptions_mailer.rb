@@ -1,5 +1,7 @@
 module Spree
   class SubscriptionsMailer < BaseMailer
+    default from: 'admin@mydapperbox.com'
+
     def cancel_email(email)
       subject = "Cancelled: #{email}"
       mail(to: "admin@mydapperbox.com", subject: subject)
