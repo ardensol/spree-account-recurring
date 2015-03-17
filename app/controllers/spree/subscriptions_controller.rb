@@ -20,7 +20,7 @@ module Spree
 
     def postponement
       if send_postponement_email
-        redirect_to plans_path, notice "Your Subscription has been Postponed."
+        redirect_to plans_path, notice: "Your Subscription has been Postponed."
       else
         render '/account'
       end
