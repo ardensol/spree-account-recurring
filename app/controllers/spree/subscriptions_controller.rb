@@ -21,7 +21,7 @@ module Spree
     def postponement
       email = spree_current_user.email
       SubscriptionsMailer.postpone_email(email).deliver
-      redirect_to :root, notice: "Subscription has been Postponed"
+      redirect_to :root, notice: "Your Subscription has been Postponed.  Your Subscription will restart in 3 months."
     end
 
     def create
