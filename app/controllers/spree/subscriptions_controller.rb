@@ -19,11 +19,8 @@ module Spree
     end
 
     def postponement
-      if send_postponement_email
-        redirect_to :root, notice: "Your Subscription has been Postponed."
-      else
-        render '/account'
-      end
+      send_postponement_email
+      redirect_to :root, notice: "Your Subscription has been Postponed."
     end
 
     def create
