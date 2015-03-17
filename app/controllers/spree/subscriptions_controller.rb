@@ -39,8 +39,8 @@ module Spree
     private
 
     def send_cancellation_email
-      @email = spree_current_user.email
-      SubscriptionsMailer.cancel_email(@email).deliver
+      email = spree_current_user.email
+      SubscriptionsMailer.cancel_email(email).deliver
     end
 
 
