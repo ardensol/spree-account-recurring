@@ -19,8 +19,8 @@ module Spree
     end
 
     def postponement
-      user = spree_current_user
-      SubscriptionsMailer.postpone_email(user).deliver
+      email = spree_current_user.email
+      SubscriptionsMailer.postpone_email(email).deliver
     end
 
     def create
