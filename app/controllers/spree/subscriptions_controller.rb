@@ -19,8 +19,8 @@ module Spree
     end
 
     def postponement
-      send_postponement_email
-      redirect_to :root, notice: "Your Subscription has been Postponed."
+      user = spree_current_user
+      SubscriptionsMailer.postpone_email(user).deliver
     end
 
     def create
@@ -49,10 +49,6 @@ module Spree
     end
 
 
-    def send_postponement_email
-      user = spree_current_user
-      SubscriptionsMailer.postpone_email(user).deliver
-    end
 
 
     def find_active_plan

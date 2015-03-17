@@ -22,6 +22,6 @@ Spree::Core::Engine.routes.draw do
 
   match 'cancellation', to: 'subscriptions#cancellation', via: :get
 
-  match 'postponement', to: 'subscriptions#postponement', via: :post
+  get :send_postponement_mail, to: 'subscriptions#postponement', as: :send_postponement_mail 
 
 end
