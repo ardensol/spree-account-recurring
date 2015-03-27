@@ -7,7 +7,11 @@ module Spree
             raise_invalid_object_error(subscription, Spree::Subscription)
             customer = subscription.user.find_or_create_stripe_customer(subscription.card_token)
             if subscription.country == "United States"
-              customer.subscriptions.create(plan: subscription.api_plan_id, coupon: subscription.coupon_code)
+              if subscription.coupon_code == nil
+                customer.subscriptions.create(plan: subscription.api_plan_id)
+              else             
+                customer.subscriptions.create(plan: subscription.api_plan_id, coupon: subscription.coupon_code)
+              end
             else
               customer.subscriptions.create(plan: subscription.intl_plan_id)
             end
