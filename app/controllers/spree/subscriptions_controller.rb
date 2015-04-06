@@ -26,8 +26,10 @@ module Spree
 
     def create
       @subscription = @plan.subscriptions.build(subscription_params.merge(user_id: spree_current_user.id))
+      email = spree_current_user.email
       if @subscription.save_and_manage_api
         redirect_to confirmation_path
+        SubscriptionsMailer.delay.postpone_email(email)
       else
         render :new
       end

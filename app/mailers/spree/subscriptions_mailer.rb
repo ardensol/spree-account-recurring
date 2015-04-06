@@ -11,5 +11,11 @@ module Spree
       subject = "Postponed for 3 Months: #{email}"
       mail(to: "admin@mydapperbox.com", subject: subject)
     end
+
+    def confirmation_email(email)
+      subject = "Subscription Confirmation: #{email}"
+      mail(to: email, subject: subject)
+    end
+
   end
 end
