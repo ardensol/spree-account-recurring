@@ -18,6 +18,7 @@ module Spree
     end
 
     def address_changed_email(email, address)
+      @address = address
       subject = "Subscription Address Changed: #{email}"
       mail(to: email, subject: subject)
     end
