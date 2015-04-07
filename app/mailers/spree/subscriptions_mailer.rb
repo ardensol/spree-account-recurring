@@ -20,7 +20,7 @@ module Spree
     def address_changed_email(email, address)
       @address = address
       subject = "Subscription Address Changed: #{email}"
-      mail(to: email, subject: subject)
+      mail(to: "admin@mydapperbox.com", subject: subject)
     end
 
   end
