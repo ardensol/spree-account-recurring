@@ -23,9 +23,10 @@ module Spree
     def authenticate_webhook
       render_status_ok if event.blank? || (event[:livemode] != Rails.env.production?) || (!Spree::Recurring::StripeRecurring::WEBHOOKS.include?(event[:type]))
     end
+    ##ERROR FOR SOME REASON .subscripitoin is private -> change to subscriptions.last
 
     def find_subscription
-      render_status_ok unless @subscription = Spree::User.find_by(stripe_customer_id: event[:data][:object][:customer]).subscription
+      render_status_ok unless @subscription = Spree::User.find_by(stripe_customer_id: event[:data][:object][:customer]).subscriptions.last
     end
 
     def retrieve_api_event
