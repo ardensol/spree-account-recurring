@@ -16,8 +16,6 @@ module Spree
       end
     end
 
-    private
-
     def event
       @event ||= (Rails.env.production? ? params.deep_dup : params.deep_dup[:recurring_hook])
     end
