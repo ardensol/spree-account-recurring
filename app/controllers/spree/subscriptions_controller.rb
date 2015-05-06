@@ -5,6 +5,7 @@ module Spree
     before_action :find_plan, only: [:show, :destroy]
     before_action :find_subscription, only: [:show, :destroy]
     before_action :authenticate_subscription, only: [:new, :create]
+    after_action  :conversion, only: [:create]
 
     def new
       @subscription = @plan.subscriptions.build
@@ -42,6 +43,10 @@ module Spree
       else
         render :show
       end
+    end
+
+    def conversion
+      finished("home_page")
     end
 
     private
