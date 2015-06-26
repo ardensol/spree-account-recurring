@@ -9,6 +9,8 @@ module Spree
 
     def new
       @subscription = @plan.subscriptions.build
+      @noheader = true
+      @nofooter = true
     end
 
     def confirmation
