@@ -48,7 +48,7 @@ module Spree
     end
 
     def conversion
-      finished("home_page")
+      finished("noheader_footer")
     end
 
     private
