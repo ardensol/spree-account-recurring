@@ -23,5 +23,13 @@ module Spree
       mail(to: "admin@mydapperbox.com", subject: subject)
     end
 
+    def beta_email(user)
+      email = user.email
+      subscription = user.subscriptions.last
+      @name = subscription.full_name.split.first
+      subject = "I saw you cancelled :("
+      mail(from: "Carlos <carlos@mydapperbox.com>", to: email, subject: subject)
+    end
+
   end
 end

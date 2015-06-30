@@ -23,6 +23,7 @@ module Spree
 
     def postponement
       email = spree_current_user.email
+      
       SubscriptionsMailer.postpone_email(email).deliver
       redirect_to :root, notice: "Your Subscription has been Postponed.  Your Subscription will restart in 3 months."
     end
@@ -42,6 +43,8 @@ module Spree
       if @subscription.save_and_manage_api(unsubscribed_at: Time.current)
         redirect_to plans_path, notice: "Subscription has been cancelled."
         send_cancellation_email
+        user = spree_current_user
+        SubscriptionsMailer.delay(run_at: 2.days.from_now).beta_email(user)
       else
         render :show
       end
