@@ -9,7 +9,7 @@ module Spree
 
     def new
       @subscription = @plan.subscriptions.build
-      @no_header_footer = ab_test("noheader_footer2", false, true)
+      @no_header_footer = ab_test("noheader_footer2", 'false', 'true')
     end
 
     def confirmation
