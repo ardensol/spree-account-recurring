@@ -31,5 +31,12 @@ module Spree
       mail(from: "Carlos <carlos@mydapperbox.com>", to: email, subject: subject)
     end
 
+    def new_order_email(user)
+        @subscription = user.subscriptions.last
+        @name = @subscription.full_name.split.first
+
+        mail(to: "csolorio05@gmail.com, adri.solorio@gmail.com", subject: 'new order')
+    end
+
   end
 end
